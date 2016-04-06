@@ -10,4 +10,5 @@ There are two major features of this application. First, it helps people can tra
 The second major feature is providing information about foods or other medicines to avoid. There are tons of pills, but not much widespread information about them. Some medicines can possibly react badly with some particular food. Users can avoid the foods by checking the list, and they can avoid other drugs if the application alerts users for possible reactions. It allows users to set up for specific condition of users too such as pregnancy.
 
 ## Control Flow
-
+<img src="images/pill_tracker_wireframe-page-001.jpg" height="400" alt="Screenshot"/>
+<img src="images/pill_tracker_wireframe-page-001.jpg" height="400" alt="Screenshot"/>
