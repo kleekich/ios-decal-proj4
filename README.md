@@ -11,4 +11,5 @@ The second major feature is providing information about foods or other medicines
 
 ## Control Flow
 <img src="images/pill_tracker_wireframe-page-001.jpg" height="400" alt="Screenshot"/>
-<img src="images/pill_tracker_wireframe-page-001.jpg" height="400" alt="Screenshot"/>
+<img src="images/pill_tracker_wireframe-page-002.jpg" height="400" alt="Screenshot"/>
+<img src="images/pill_tracker_wireframe-page-003.jpg" height="400" alt="Screenshot"/>
