@@ -1,6 +1,6 @@
 # Pill Tracker
 
-## Author Kangsik Kevin Lee
+## Author: Kangsik Kevin Lee
 
 ## Purpose:
 Athletes that take medications or supplements. What makes athletes distinct from other people that take pills is their more stringent diet, as well as how instrumental taking their pills can be to their performance. For medications, the need is pretty uniform no matter who is taking them. But supplements, which usually have less drastic effects, can be essential to an athlete’s performance, and because of this affect how well they can do their job and get paid. In addition, because an athlete may already have dietary restrictions different than the general public, this app’s ability to warn the user of what not to eat is a necessity. Athletes may also want to factor in how side effects of the pills may affect their performance to weigh the benefits of taking a pill now or later, something we can further look into.
