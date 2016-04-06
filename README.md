@@ -4,7 +4,9 @@
 
 ## Purpose:
 Athletes that take medications or supplements. What makes athletes distinct from
+
 other people that take pills is their more stringent diet, as well as how 
+
 instrumental taking their pills can be to their performance. For medications, 
 the need is pretty uniform no matter who is taking them. But supplements, which 
 usually have less drastic effects, can be essential to an athlete’s performance, 
