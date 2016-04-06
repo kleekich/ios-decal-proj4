@@ -3,8 +3,8 @@
 ## Author: Kangsik Kevin Lee
 
 ## Purpose:
-Athletes that take medications or supplements. What makes athletes distinct from\n
-other people that take pills is their more stringent diet, as well as how
+Athletes that take medications or supplements. What makes athletes distinct from__
+other people that take pills is their more stringent diet, as well as how__
 instrumental taking their pills can be to their performance. For medications, 
 the need is pretty uniform no matter who is taking them. But supplements, which 
 usually have less drastic effects, can be essential to an athlete’s performance, 
