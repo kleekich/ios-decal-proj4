@@ -16,7 +16,7 @@ pills may affect their performance to weigh the benefits of taking a pill now or
 later,something we can further look into. <br />
 
 ## Features:
-* There are two major features of this application. First, it helps people can  <br />
+** There are two major features of this application. First, it helps people can  <br />
 track of time they took the last pill, and it reminds them to take the next pill <br />
 on time. For those who take daily medicine, it is very crucial to remember to  <br />
 take their pills on time. Depending on a patient’s condition, missing a pill on  <br />
@@ -24,7 +24,7 @@ time can lead to a fatal situation. Also, it is very easy to lose track of the  
 time they took the last pill. Not only can patients benefit from this  <br />
 application, but also people who take daily supplements such as vitamins and  <br />
 pro-biotics. <br />
-* The second major feature is providing information about foods or other  <br />
+** The second major feature is providing information about foods or other  <br />
 medicines to avoid. There are tons of pills, but not much widespread information <br /> 
 about them. Some medicines can possibly react badly with some particular food.  <br />
 Users can avoid the foods by checking the list, and they can avoid other drugs  <br />
