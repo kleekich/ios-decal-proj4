@@ -76,10 +76,12 @@ class SecondTableViewController: UITableViewController{
             let reminderDetailsVC = segue.destinationViewController as! ReminderDetails
             reminderDetailsVC.reminder = self.selectedReminder
             reminderDetailsVC.eventStore = eventStore
- */
+            */
         }else{
-            let newReminderVC = segue.sourceViewController as! SecondTableViewController
-            newReminderVC.eventStore = eventStore
+            let nav = segue.destinationViewController as! UINavigationController
+            let addPillViewController = nav.topViewController as! AddPillViewController
+            
+            addPillViewController.eventStore = eventStore
         }
     }
     
@@ -87,8 +89,6 @@ class SecondTableViewController: UITableViewController{
     // MARK: - Table view data source
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        
-        
         return reminders.count
     }
     
@@ -129,8 +129,16 @@ class SecondTableViewController: UITableViewController{
         self.performSegueWithIdentifier("ShowReminderDetails", sender: self)
     }
     
-    
-    
+    @IBAction func unwindToSecondTableView(segue: UIStoryboardSegue) {
+        if segue.identifier == "save" {
+        }
+        /*
+        if let avc = segue.sourceViewController as? SecondTableViewController {
+            //taskMgr.addTask(avc.txtTask.text!, desc: avc.txtDesc.text!, createdAt: NSDate(), completedAt: nil)
+            
+        }
+        */
+    }
     
 
     /*

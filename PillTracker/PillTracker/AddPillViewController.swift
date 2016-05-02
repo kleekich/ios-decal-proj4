@@ -9,7 +9,7 @@
 import UIKit
 import EventKit
 
-class AddPillViewController: UIViewController {
+class AddPillViewController: UIViewController,UIPickerViewDataSource,UIPickerViewDelegate {
     
     
     // Properties
@@ -17,19 +17,23 @@ class AddPillViewController: UIViewController {
     var datePicker: UIDatePicker!
     
     @IBOutlet weak var textFieldPillName: UITextField!
-    
     @IBOutlet weak var pickerViewCategory: UIPickerView!
     @IBOutlet weak var textFieldHours: UITextField!
-    @IBOutlet weak var textFieldDate: UITextField!
+    @IBOutlet weak var textFieldFirstAt: UITextField!
+    @IBOutlet weak var buttonCheck: UIButton!
     
+    @IBOutlet weak var textFieldNumPills: UITextField!
     
+    let pickerData = ["Medicine","Supplement"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
         datePicker = UIDatePicker()
         datePicker.addTarget(self, action: "addDate", forControlEvents: UIControlEvents.ValueChanged)
         datePicker.datePickerMode = UIDatePickerMode.DateAndTime
-        textFieldDate.inputView = datePicker
+        textFieldFirstAt.inputView = datePicker
+        self.pickerViewCategory.dataSource = self;
+        self.pickerViewCategory.delegate = self;
         //reminderTextView.becomeFirstResponder()
     }
     
@@ -38,6 +42,16 @@ class AddPillViewController: UIViewController {
     }
     
     @IBAction func saveNewReminder(sender: AnyObject) {
+        //Pill
+        /*
+        pillMgr.addPill(textFieldPillName.text!, desc: txtDesc.text!, createdAt: NSDate(), completedAt: nil)
+        self.view.endEditing(true)
+        txtTask.text = ""
+        txtDesc.text = ""
+
+        */
+        
+        //Reminder
         let reminder = EKReminder(eventStore: self.eventStore)
         //reminder.title = reminderTextView.text
         let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
@@ -53,12 +67,24 @@ class AddPillViewController: UIViewController {
     }
     
     func addDate(){
-        self.textFieldDate.text = self.datePicker.date.description
+        self.textFieldFirstAt.text = self.datePicker.date.description
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return pickerData.count
+    }
+    
+    func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String! {
+        return pickerData[row]
+    }
+  
     
     /*
      // MARK: - Navigation

@@ -27,97 +27,120 @@
             <point key="canvasLocation" x="4" y="84"/>
         </scene>
         <!--Add Pill View Controller-->
-        <scene sceneID="A8V-I4-5gA">
+        <scene sceneID="ZWB-hC-dZf">
             <objects>
-                <viewController id="UkT-X9-g7S" customClass="AddPillViewController" customModule="PillTracker" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="o6G-Ow-hs5">
+                <viewController id="Biy-ky-E4L" customClass="AddPillViewController" customModule="PillTracker" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="bb6-E0-1zv">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pill Name: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="e7v-rf-4zx">
-                                <rect key="frame" x="20" y="170" width="81" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pill Name:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="qCU-Qh-6CM">
+                                <rect key="frame" x="8" y="88" width="76" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Take Every" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="htV-Ha-RA2">
-                                <rect key="frame" x="20" y="345" width="83" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Take the First Pill At:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="sdy-dr-T6J">
+                                <rect key="frame" x="17" y="341" width="155" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Take the First Pill At:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="2qN-TD-87t">
-                                <rect key="frame" x="20" y="385" width="155" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Take Every" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="tjN-nu-7Z5">
+                                <rect key="frame" x="17" y="312" width="83" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hours" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="epO-Ih-CNS">
-                                <rect key="frame" x="190" y="345" width="46" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pills per Day:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="65H-qQ-Tuk">
+                                <rect key="frame" x="17" y="273" width="99" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="JdN-Br-SSa">
-                                <rect key="frame" x="138" y="484" width="44" height="41"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hours" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ecw-KO-hy7">
+                                <rect key="frame" x="168" y="313" width="46" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <pickerView contentMode="scaleToFill" id="of7-bu-bLh">
+                                <rect key="frame" x="0.0" y="123" width="320" height="119"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="Biy-ky-E4L" id="4KK-TQ-MSK"/>
+                                    <outlet property="delegate" destination="Biy-ky-E4L" id="4kS-NI-0Jb"/>
+                                </connections>
+                            </pickerView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="ikG-Ya-9E8">
+                                <rect key="frame" x="138" y="408" width="44" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Check"/>
                             </button>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" id="TmO-rB-WZA">
-                                <rect key="frame" x="118" y="341" width="50" height="30"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" id="Z5Q-dn-NkE">
+                                <rect key="frame" x="17" y="370" width="286" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <pickerView contentMode="scaleToFill" id="yQT-WE-zgw">
-                                <rect key="frame" x="0.0" y="199" width="320" height="139"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </pickerView>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" id="No9-rR-IW5">
-                                <rect key="frame" x="28" y="414" width="230" height="30"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" id="9HW-Uf-Waf">
+                                <rect key="frame" x="112" y="309" width="41" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" id="gMX-aU-ONO">
+                                <rect key="frame" x="112" y="85" width="97" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" id="b1N-bb-jEW">
+                                <rect key="frame" x="135" y="269" width="47" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pills" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="dcd-Om-qwI">
+                                <rect key="frame" x="211" y="273" width="31" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="vtY-Wn-Jh4">
-                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="N8G-Nl-Mcx"/>
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="35G-pG-WDL"/>
+                    <navigationItem key="navigationItem" id="8FO-2i-dSd">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="yp3-Xc-ZUm">
+                            <connections>
+                                <segue destination="Yy6-cz-iuF" kind="unwind" unwindAction="unwindToSecondTableView:" id="NGU-eF-E45"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="6bB-hh-SvN">
+                            <connections>
+                                <action selector="saveNewReminder:" destination="Biy-ky-E4L" id="qhZ-zc-edd"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="dateTextField" destination="No9-rR-IW5" id="hBN-lX-0Ch"/>
-                        <outlet property="pickerViewCategory" destination="yQT-WE-zgw" id="9YG-pP-Hyy"/>
-                        <outlet property="textFieldDate" destination="No9-rR-IW5" id="BVH-O9-PKL"/>
-                        <outlet property="textFieldHours" destination="TmO-rB-WZA" id="Nhy-Pl-y4B"/>
+                        <outlet property="buttonCheck" destination="ikG-Ya-9E8" id="wXi-lw-5Mk"/>
+                        <outlet property="pickerViewCategory" destination="of7-bu-bLh" id="Pwg-LN-utN"/>
+                        <outlet property="textFieldFirstAt" destination="Z5Q-dn-NkE" id="jH5-s1-Ica"/>
+                        <outlet property="textFieldHours" destination="9HW-Uf-Waf" id="Iii-If-tJZ"/>
+                        <outlet property="textFieldNumPills" destination="b1N-bb-jEW" id="D3Y-UH-dv5"/>
+                        <outlet property="textFieldPillName" destination="gMX-aU-ONO" id="qof-Ov-xME"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="cdd-EK-HIp" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ONX-cG-GaZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="Yy6-cz-iuF" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1654" y="324"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="EVb-Xa-TTp">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="g5N-Q4-wjE" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Ncq-7D-XSV">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="UkT-X9-g7S" kind="relationship" relationship="rootViewController" id="lqg-nP-QAr"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="HYw-rz-Myg" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1228" y="324"/>
+            <point key="canvasLocation" x="1578" y="315"/>
         </scene>
         <!--Medicines-->
         <scene sceneID="zYo-fB-VQL">
@@ -161,7 +184,7 @@
                     <navigationItem key="navigationItem" title="Medicines" id="Q2M-x1-2re">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="VUU-di-bhD">
                             <connections>
-                                <segue destination="g5N-Q4-wjE" kind="modal" id="wDW-BR-nfb"/>
+                                <segue destination="mBR-p2-Spi" kind="modal" id="9KE-yt-bVm"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -314,7 +337,7 @@
                     <navigationItem key="navigationItem" title="Supplements" id="dXf-XE-F30">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="GEA-I5-fyE">
                             <connections>
-                                <segue destination="g5N-Q4-wjE" kind="modal" id="pBP-5S-Nfq"/>
+                                <segue destination="mBR-p2-Spi" kind="modal" id="WmY-fm-mDj"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -390,8 +413,27 @@
             </objects>
             <point key="canvasLocation" x="430" y="1341"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="xup-Kw-504">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="mBR-p2-Spi" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="S0C-jZ-A4x"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="DBr-sH-9q4">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Biy-ky-E4L" kind="relationship" relationship="rootViewController" id="cB2-o2-ttw"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="c2E-fA-Znk" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1188" y="315"/>
+        </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="wDW-BR-nfb"/>
+        <segue reference="WmY-fm-mDj"/>
     </inferredMetricsTieBreakers>
 </document>
