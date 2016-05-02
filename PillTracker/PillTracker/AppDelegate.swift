@@ -41,6 +41,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
 
+    //MARK: Helper method to convert the NSDate to NSDateComponents
+    func dateComponentFromNSDate(date: NSDate)-> NSDateComponents{
+        
+        let calendarUnit: NSCalendarUnit = [.Hour, .Day, .Month, .Year]
+        let dateComponents = NSCalendar.currentCalendar().components(calendarUnit, fromDate: date)
+        return dateComponents
+    }
 
 }
 

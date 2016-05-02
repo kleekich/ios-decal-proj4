@@ -17,6 +17,8 @@
 		8E587F191CD2E742005277E6 /* ThirdTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E587F181CD2E742005277E6 /* ThirdTableViewController.swift */; };
 		8E587F1B1CD2E75E005277E6 /* SecondTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E587F1A1CD2E75E005277E6 /* SecondTableViewController.swift */; };
 		8E587F1D1CD2E771005277E6 /* FourthTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E587F1C1CD2E771005277E6 /* FourthTableViewController.swift */; };
+		8E587F211CD4B51F005277E6 /* PillManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E587F201CD4B51F005277E6 /* PillManager.swift */; };
+		8E587F251CD6F027005277E6 /* AddPillViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E587F241CD6F027005277E6 /* AddPillViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +55,8 @@
 		8E587F181CD2E742005277E6 /* ThirdTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThirdTableViewController.swift; sourceTree = "<group>"; };
 		8E587F1A1CD2E75E005277E6 /* SecondTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecondTableViewController.swift; sourceTree = "<group>"; };
 		8E587F1C1CD2E771005277E6 /* FourthTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FourthTableViewController.swift; sourceTree = "<group>"; };
+		8E587F201CD4B51F005277E6 /* PillManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PillManager.swift; sourceTree = "<group>"; };
+		8E587F241CD6F027005277E6 /* AddPillViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddPillViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,10 +108,12 @@
 			isa = PBXGroup;
 			children = (
 				8E587EE81CD2E444005277E6 /* AppDelegate.swift */,
+				8E587F241CD6F027005277E6 /* AddPillViewController.swift */,
 				8E587EEA1CD2E444005277E6 /* FirstViewController.swift */,
 				8E587F1A1CD2E75E005277E6 /* SecondTableViewController.swift */,
 				8E587F181CD2E742005277E6 /* ThirdTableViewController.swift */,
 				8E587F1C1CD2E771005277E6 /* FourthTableViewController.swift */,
+				8E587F201CD4B51F005277E6 /* PillManager.swift */,
 				8E587EEE1CD2E444005277E6 /* Main.storyboard */,
 				8E587EF11CD2E444005277E6 /* Assets.xcassets */,
 				8E587EF31CD2E444005277E6 /* LaunchScreen.storyboard */,
@@ -265,10 +271,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8E587F251CD6F027005277E6 /* AddPillViewController.swift in Sources */,
 				8E587EE91CD2E444005277E6 /* AppDelegate.swift in Sources */,
 				8E587F1D1CD2E771005277E6 /* FourthTableViewController.swift in Sources */,
 				8E587F1B1CD2E75E005277E6 /* SecondTableViewController.swift in Sources */,
 				8E587EEB1CD2E444005277E6 /* FirstViewController.swift in Sources */,
+				8E587F211CD4B51F005277E6 /* PillManager.swift in Sources */,
 				8E587F191CD2E742005277E6 /* ThirdTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

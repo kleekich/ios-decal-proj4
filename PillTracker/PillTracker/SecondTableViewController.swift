@@ -7,45 +7,131 @@
 //
 
 import UIKit
+import EventKit
 
-class SecondTableViewController: UITableViewController {
+class SecondTableViewController: UITableViewController{
+    var eventStore: EKEventStore!
+    var reminders: [EKReminder]!
+    var selectedReminder: EKReminder!
 
+    
+    @IBOutlet var tableViewMedicine: UITableView!
+    
+    
+ 
+    
+    override func viewWillAppear(animated: Bool) {
+        // 1
+        print("viewWillAppear")
+        self.eventStore = EKEventStore()
+        self.reminders = [EKReminder]()
+        self.eventStore.requestAccessToEntityType(EKEntityType.Reminder) { (granted: Bool, error: NSError?) -> Void in
+            
+            if granted{
+                // 2
+                let predicate = self.eventStore.predicateForRemindersInCalendars(nil)
+                self.eventStore.fetchRemindersMatchingPredicate(predicate, completion: { (reminders: [EKReminder]?) -> Void in
+                    self.reminders = reminders
+                    dispatch_async(dispatch_get_main_queue()) {
+                        self.tableViewMedicine.reloadData()
+                    }
+                })
+            }else{
+                print("The app is not permitted to access reminders, make sure to grant permission in the settings and try again")
+            }
+        }
+    }
+    
     override func viewDidLoad() {
+        self.automaticallyAdjustsScrollViewInsets = false
         super.viewDidLoad()
-
+        
         // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
+        //self.clearsSelectionOnViewWillAppear = false
+        
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
+    
+    @IBAction func editTable(sender: AnyObject) {
+        tableViewMedicine.editing = !tableViewMedicine.editing
+        if tableView.editing{
+            tableView.setEditing(true, animated: true)
+        }else{
+            tableView.setEditing(false, animated: true)
+        }
+    }
+    
+
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        // Which segue is triggered, react accordingly
+        if segue.identifier == "ShowReminderDetails"{
+            /*
+            let reminderDetailsVC = segue.destinationViewController as! ReminderDetails
+            reminderDetailsVC.reminder = self.selectedReminder
+            reminderDetailsVC.eventStore = eventStore
+ */
+        }else{
+            let newReminderVC = segue.sourceViewController as! SecondTableViewController
+            newReminderVC.eventStore = eventStore
+        }
+    }
+    
 
     // MARK: - Table view data source
-
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
-    }
-
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        
+        
+        return reminders.count
+    }
+    
+    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) ->
+        UITableViewCell {
+            
+            let cell: UITableViewCell = UITableViewCell(style: UITableViewCellStyle.Subtitle , reuseIdentifier: "reminderCell")
+            let reminder:EKReminder! = self.reminders![indexPath.row]
+            cell.textLabel?.text = reminder.title
+            let formatter:NSDateFormatter = NSDateFormatter()
+            formatter.dateFormat = "yyyy-MM-dd"
+            if let dueDate = reminder.dueDateComponents?.date{
+                cell.detailTextLabel?.text = formatter.stringFromDate(dueDate)
+            }else{
+                cell.detailTextLabel?.text = "N/A"
+            }
+            print("Hi I am a cell")
+            return cell
     }
 
-    /*
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath)
-
-        // Configure the cell...
-
-        return cell
+    
+ 
+    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+        
+        let reminder: EKReminder = reminders[indexPath.row]
+        do{
+            try eventStore.removeReminder(reminder, commit: true)
+            self.reminders.removeAtIndex(indexPath.row)
+            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Fade)
+        }catch{
+            print("An error occurred while removing the reminder from the Calendar database: \(error)")
+        }
     }
-    */
+    
+    //MARK: UITableViewDelegate
+    override func tableView(tableView: UITableView, accessoryButtonTappedForRowWithIndexPath indexPath: NSIndexPath) {
+        self.selectedReminder = self.reminders[indexPath.row]
+        self.performSegueWithIdentifier("ShowReminderDetails", sender: self)
+    }
+    
+    
+    
+    
 
     /*
     // Override to support conditional editing of the table view.
