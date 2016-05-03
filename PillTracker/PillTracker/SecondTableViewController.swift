@@ -184,7 +184,7 @@ class SecondTableViewController: UITableViewController{
             print("An error occurred while removing the reminder from the Calendar database: \(error)")
         }
          */
-        pillMgr.delete(indexPath.row)
+        pillMgr.deleteMedicine(indexPath.row)
         tableViewMedicine.reloadData()
 
     }

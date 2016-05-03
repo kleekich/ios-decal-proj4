@@ -60,6 +60,7 @@ class AddPillViewController: UIViewController,UIPickerViewDataSource,UIPickerVie
         //Getting next Alarm & next Alarm index
         var nextAlarm: NSDate = alarmArray[0]
         var nextAlarmIndex: Int = 0
+        var pillsTook: Int = 0
         for i in 0...alarmArray.count-1{
             //if alarm Time is later than current time, this is the next alarm
             if alarmArray[i].isGreaterThanDate(NSDate()){
@@ -67,17 +68,20 @@ class AddPillViewController: UIViewController,UIPickerViewDataSource,UIPickerVie
                 nextAlarmIndex = i
                 break;
             }
+            pillsTook+=1
             
         }
         //timeLeft for next Alarm
         let timeLeft = nextAlarm.offsetFrom(NSDate())
         
-        //Create a Pill
-        let pill = pillMgr.addPill(textFieldPillName.text!, category: selectedCategory, numPills: numPills, duration: duration, alarmTimes: alarmArray, nextAlarmIndex: nextAlarmIndex, timeLeft: timeLeft)
-        
-        //Create a Reminder
+        ////Create a Reminder
         let reminder = EKReminder(eventStore: self.eventStore)
         reminder.title = textFieldPillName.text!
+
+        
+        //Create a Pill
+        let pill = pillMgr.addPill(textFieldPillName.text!, category: selectedCategory, numPills: numPills, duration: duration, pillsTook: pillsTook, alarmTimes: alarmArray, nextAlarmIndex: nextAlarmIndex, timeLeft: timeLeft, reminder: reminder)
+        
         
         //Add Recurrence Rule for daily
         let recRule: EKRecurrenceRule = EKRecurrenceRule(recurrenceWithFrequency: EKRecurrenceFrequency.Daily ,interval: 1,end: nil)

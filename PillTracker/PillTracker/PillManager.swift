@@ -20,6 +20,7 @@ struct pill{
     var alarmTimes: [NSDate!]
     var nextAlarmIndex: Int
     var timeLeft: String
+    var reminder: EKReminder
     
 }
 
@@ -42,7 +43,7 @@ class PillManager: NSObject {
      */
     
     
-    func addPill(name: String, category: String, numPills: Int, duration: Int, alarmTimes: [NSDate!], nextAlarmIndex: Int, timeLeft: String)-> pill{
+    func addPill(name: String, category: String, numPills: Int, duration: Int, pillsTook: Int, alarmTimes: [NSDate!], nextAlarmIndex: Int, timeLeft: String, reminder: EKReminder)-> pill{
         //initialize pill
         
         //calculate pills took
@@ -50,7 +51,7 @@ class PillManager: NSObject {
         //let p = pill(name:name, category: category, numPills: numPills, duration: duration, pillsTook: pillsTookForNow, alarmTimes: alarmTimes, lastAlarmIndex: lastAlarmIndex)
         
         
-        let p = pill(name:name, category: category, numPills: numPills, duration: duration, pillsTook: 0, alarmTimes: alarmTimes, nextAlarmIndex: nextAlarmIndex, timeLeft: timeLeft)
+        let p = pill(name:name, category: category, numPills: numPills,  duration: duration, pillsTook: pillsTook,alarmTimes: alarmTimes, nextAlarmIndex: nextAlarmIndex, timeLeft: timeLeft, reminder: reminder)
         
         if(category == "Medicine"){
             medicines.append(p)
@@ -70,6 +71,16 @@ class PillManager: NSObject {
         for i in 0...medicines.count-1{
             var m = medicines[i]
             var nextAlarm = m.alarmTimes[m.nextAlarmIndex]
+            //if alarm is fired
+            if nextAlarm.isLessThanDate(NSDate()){
+                medicines[i].nextAlarmIndex+=1
+                nextAlarm = m.alarmTimes[m.nextAlarmIndex]
+                let alarm: EKAlarm = EKAlarm(absoluteDate: nextAlarm)
+                m.reminder.addAlarm(alarm)
+                medicines[i].pillsTook+=1
+                
+            }
+            
             medicines[i].timeLeft = nextAlarm.offsetFrom(NSDate())
         }
     }
