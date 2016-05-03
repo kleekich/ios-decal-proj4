@@ -63,7 +63,7 @@ class CheckPillViewController: UIViewController {
             do {
                 if let ipString = NSString(data:data!, encoding: NSUTF8StringEncoding) {
                     // Print what we got from the call
-                    print(ipString)
+                    //print(ipString)
                     
                     // Parse the JSON to get the IP
                     let jsonDictionary = try NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.MutableContainers) as! NSDictionary
@@ -71,8 +71,15 @@ class CheckPillViewController: UIViewController {
                     let jsonData = NSData(contentsOfURL: url!) as NSData!
                     let readableJSON = JSON(data: jsonData, options: NSJSONReadingOptions.MutableContainers, error: nil)
                     
-                    var group = readableJSON["interactionTypeGroup"]
-                    NSLog("\(group)")
+                    var groupJSON = readableJSON["interactionTypeGroup"]
+                    var typeElementJSON = groupJSON[0]
+                    var typeJSON = typeElementJSON["interactionType"][0]
+                    var interactionPairJSON = typeJSON["interactionPair"][0]//can have serveral reactions
+                    var description = interactionPairJSON["description"]
+                    
+                    NSLog("------------------------------------")
+                    NSLog("\(description)")
+                    NSLog("------------------------------------")
                     //let origin = jsonDictionary["interactionTypeGroup"] as! String
                     /*
                     var desc: String = "asdf"
