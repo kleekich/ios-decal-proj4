@@ -105,9 +105,9 @@ class SecondTableViewController: UITableViewController{
             */
         }else{
             let nav = segue.destinationViewController as! UINavigationController
-            let addPillViewController = nav.topViewController as! AddPillViewController
+            let checkPillViewController = nav.topViewController as! CheckPillViewController
             
-            addPillViewController.eventStore = eventStore
+            checkPillViewController.eventStore = eventStore
         }
     }
     
