@@ -20,6 +20,7 @@
 		8E587F211CD4B51F005277E6 /* PillManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E587F201CD4B51F005277E6 /* PillManager.swift */; };
 		8E587F251CD6F027005277E6 /* AddPillViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E587F241CD6F027005277E6 /* AddPillViewController.swift */; };
 		8E587F271CD75198005277E6 /* NSDateExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E587F261CD75198005277E6 /* NSDateExtensions.swift */; };
+		8E587F291CD8443B005277E6 /* CheckPillViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E587F281CD8443B005277E6 /* CheckPillViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +60,7 @@
 		8E587F201CD4B51F005277E6 /* PillManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PillManager.swift; sourceTree = "<group>"; };
 		8E587F241CD6F027005277E6 /* AddPillViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddPillViewController.swift; sourceTree = "<group>"; };
 		8E587F261CD75198005277E6 /* NSDateExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSDateExtensions.swift; sourceTree = "<group>"; };
+		8E587F281CD8443B005277E6 /* CheckPillViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckPillViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,6 +112,7 @@
 			isa = PBXGroup;
 			children = (
 				8E587EE81CD2E444005277E6 /* AppDelegate.swift */,
+				8E587F281CD8443B005277E6 /* CheckPillViewController.swift */,
 				8E587F241CD6F027005277E6 /* AddPillViewController.swift */,
 				8E587EEA1CD2E444005277E6 /* FirstViewController.swift */,
 				8E587F1A1CD2E75E005277E6 /* SecondTableViewController.swift */,
@@ -274,6 +277,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8E587F291CD8443B005277E6 /* CheckPillViewController.swift in Sources */,
 				8E587F271CD75198005277E6 /* NSDateExtensions.swift in Sources */,
 				8E587F251CD6F027005277E6 /* AddPillViewController.swift in Sources */,
 				8E587EE91CD2E444005277E6 /* AppDelegate.swift in Sources */,
