@@ -77,11 +77,6 @@
                                     <outlet property="delegate" destination="Biy-ky-E4L" id="4kS-NI-0Jb"/>
                                 </connections>
                             </pickerView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="ikG-Ya-9E8">
-                                <rect key="frame" x="138" y="408" width="44" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Check"/>
-                            </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" id="Z5Q-dn-NkE">
                                 <rect key="frame" x="17" y="370" width="286" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -122,14 +117,14 @@
                                 <segue destination="Yy6-cz-iuF" kind="unwind" unwindAction="unwindToSecondTableView:" id="NGU-eF-E45"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="6bB-hh-SvN">
+                        <barButtonItem key="rightBarButtonItem" title="Check" id="6bB-hh-SvN">
                             <connections>
                                 <action selector="saveNewReminder:" destination="Biy-ky-E4L" id="qhZ-zc-edd"/>
+                                <segue destination="5Bh-Kd-HZ6" kind="modal" id="FIG-bc-Imr"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="buttonCheck" destination="ikG-Ya-9E8" id="wXi-lw-5Mk"/>
                         <outlet property="pickerViewCategory" destination="of7-bu-bLh" id="Pwg-LN-utN"/>
                         <outlet property="textFieldFirstAt" destination="Z5Q-dn-NkE" id="jH5-s1-Ica"/>
                         <outlet property="textFieldHours" destination="9HW-Uf-Waf" id="Iii-If-tJZ"/>
@@ -141,6 +136,54 @@
                 <exit id="Yy6-cz-iuF" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1578" y="315"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="Y23-1c-PXx">
+            <objects>
+                <viewController id="b7o-7O-2Hk" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="rct-KI-Uj8">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Status: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Tbv-Mz-c8J">
+                                <rect key="frame" x="22" y="104" width="59" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Caution!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="KxY-Rf-81P">
+                                <rect key="frame" x="89" y="104" width="64" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="5IC-xC-rCu">
+                                <rect key="frame" x="22" y="190" width="88" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ABC + BBC can cause..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Tg1-yU-axm">
+                                <rect key="frame" x="20" y="238" width="183" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="cfE-8C-TQh">
+                        <barButtonItem key="leftBarButtonItem" title="Item" systemItem="cancel" id="xxJ-cp-jhl"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="cX6-IZ-csw"/>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bSr-KI-7QL" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2430" y="315"/>
         </scene>
         <!--Medicines-->
         <scene sceneID="zYo-fB-VQL">
@@ -434,6 +477,25 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="c2E-fA-Znk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1188" y="315"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="PBg-5d-cyd">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="5Bh-Kd-HZ6" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="2df-Sd-sag"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="bwI-U7-mZC">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="b7o-7O-2Hk" kind="relationship" relationship="rootViewController" id="1lM-jP-BjP"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="PQQ-uA-YwZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2040" y="315"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
