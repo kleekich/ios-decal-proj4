@@ -164,10 +164,10 @@
             </objects>
             <point key="canvasLocation" x="2515" y="393"/>
         </scene>
-        <!--View Controller-->
+        <!--Check Pill View Controller-->
         <scene sceneID="Y23-1c-PXx">
             <objects>
-                <viewController id="b7o-7O-2Hk" sceneMemberID="viewController">
+                <viewController id="b7o-7O-2Hk" customClass="CheckPillViewController" customModule="PillTracker" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="rct-KI-Uj8">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -192,7 +192,7 @@
                         <barButtonItem key="leftBarButtonItem" title="Item" systemItem="cancel" id="xxJ-cp-jhl"/>
                         <barButtonItem key="rightBarButtonItem" title="Check" id="cX6-IZ-csw">
                             <connections>
-                                <segue destination="mBR-p2-Spi" kind="modal" id="EOW-o0-mVv"/>
+                                <segue destination="mBR-p2-Spi" kind="modal" id="xsb-dJ-nND"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -244,7 +244,7 @@
                     <navigationItem key="navigationItem" title="Medicines" id="Q2M-x1-2re">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="VUU-di-bhD">
                             <connections>
-                                <segue destination="5Bh-Kd-HZ6" kind="modal" id="mDb-ol-BYl"/>
+                                <segue destination="5Bh-Kd-HZ6" kind="modal" id="AfZ-EX-ERy"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -398,7 +398,7 @@
                     <navigationItem key="navigationItem" title="Supplements" id="dXf-XE-F30">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="GEA-I5-fyE">
                             <connections>
-                                <segue destination="5Bh-Kd-HZ6" kind="modal" id="4qE-L6-gRN"/>
+                                <segue destination="5Bh-Kd-HZ6" kind="modal" id="7bA-yv-SYu"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -515,6 +515,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="4qE-L6-gRN"/>
+        <segue reference="7bA-yv-SYu"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -16,6 +16,9 @@ class AddPillViewController: UIViewController,UIPickerViewDataSource,UIPickerVie
     var eventStore: EKEventStore!
     var datePicker: UIDatePicker!
     var selectedCategory: String!
+    var pillName: String!
+    var status: String!
+    var desc: String!
     
     @IBOutlet weak var textFieldPillName: UITextField!
     @IBOutlet weak var pickerViewCategory: UIPickerView!
