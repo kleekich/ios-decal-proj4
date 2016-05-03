@@ -146,16 +146,16 @@
         <scene sceneID="zYo-fB-VQL">
             <objects>
                 <tableViewController id="anh-dT-e10" customClass="SecondTableViewController" customModule="PillTracker" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="50" sectionHeaderHeight="28" sectionFooterHeight="28" id="kvs-Nk-YnD">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="160" sectionHeaderHeight="28" sectionFooterHeight="28" id="kvs-Nk-YnD">
+                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="reminderCell" rowHeight="50" id="r6O-5h-VpE">
-                                <rect key="frame" x="0.0" y="92" width="320" height="50"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="reminderCell" rowHeight="160" id="r6O-5h-VpE">
+                                <rect key="frame" x="0.0" y="28" width="320" height="160"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="r6O-5h-VpE" id="uDB-81-GPV">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="159"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="VaF-4n-k2j">
@@ -181,6 +181,7 @@
                             <outlet property="delegate" destination="anh-dT-e10" id="I9Q-ZJ-DDd"/>
                         </connections>
                     </tableView>
+                    <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
                     <navigationItem key="navigationItem" title="Medicines" id="Q2M-x1-2re">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="VUU-di-bhD">
                             <connections>
@@ -316,12 +317,12 @@
             <objects>
                 <tableViewController id="sqi-wp-LnM" customClass="ThirdTableViewController" customModule="PillTracker" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="28" sectionHeaderHeight="28" sectionFooterHeight="28" id="s1a-su-Tms">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="28" id="RXB-Zs-Zom">
-                                <rect key="frame" x="0.0" y="92" width="320" height="28"/>
+                                <rect key="frame" x="0.0" y="28" width="320" height="28"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="RXB-Zs-Zom" id="6DE-ZC-bcw">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="27"/>
@@ -334,6 +335,7 @@
                             <outlet property="delegate" destination="sqi-wp-LnM" id="kjj-rJ-okY"/>
                         </connections>
                     </tableView>
+                    <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
                     <navigationItem key="navigationItem" title="Supplements" id="dXf-XE-F30">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="GEA-I5-fyE">
                             <connections>
@@ -370,12 +372,12 @@
             <objects>
                 <tableViewController id="B05-hd-kjz" customClass="FourthTableViewController" customModule="PillTracker" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="oAs-9Z-1oF">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="jZW-CT-gD2">
-                                <rect key="frame" x="0.0" y="92" width="320" height="44"/>
+                                <rect key="frame" x="0.0" y="28" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="jZW-CT-gD2" id="WaG-iP-1dt">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
@@ -388,6 +390,7 @@
                             <outlet property="delegate" destination="B05-hd-kjz" id="O8L-L5-qhk"/>
                         </connections>
                     </tableView>
+                    <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
                     <navigationItem key="navigationItem" title="Food to Avoid" id="Szg-r2-HqV"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jRJ-Ry-Pvx" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -434,6 +437,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="WmY-fm-mDj"/>
+        <segue reference="9KE-yt-bVm"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -13,15 +13,14 @@ var pillMgr: PillManager = PillManager()
 
 struct pill{
     var name = "Un-named"
-    var desc = "Un-Described"
-    /*
     var category: String
     var numPills: Int
     var duration: Int
-    var firstTakeAt: NSDate?
-    var schedule: [NSDate?]
     var pillsTook: Int
-    */
+    var alarmTimes: [NSDate!]
+    var nextAlarmIndex: Int
+    var timeLeft: String
+    
 }
 
 struct food{
@@ -36,37 +35,56 @@ class PillManager: NSObject {
     var medicines = [pill]()
     //var supplements = [pill]()
     //var foodsToAvoid = [food]()
+    /*
     func addPill(name: String, desc: String){
         medicines.append(pill(name: name ,desc: desc))
     }
+     */
     
-    /*
-    func addPill(name: String, category: String, numPills: Int, duration: Int, hr: Int, min: Int, isAM: Bool, isNow: Bool){
+    
+    func addPill(name: String, category: String, numPills: Int, duration: Int, alarmTimes: [NSDate!], nextAlarmIndex: Int, timeLeft: String)-> pill{
         //initialize pill
-        var schedule: [NSDate] = []
         
+        //calculate pills took
+        //var pillsTookForNow: Int = lastAlarmIndex-1
+        //let p = pill(name:name, category: category, numPills: numPills, duration: duration, pillsTook: pillsTookForNow, alarmTimes: alarmTimes, lastAlarmIndex: lastAlarmIndex)
+        
+        
+        let p = pill(name:name, category: category, numPills: numPills, duration: duration, pillsTook: 0, alarmTimes: alarmTimes, nextAlarmIndex: nextAlarmIndex, timeLeft: timeLeft)
         
         if(category == "Medicine"){
-            
-            
-            
-            medicines.append()
+            medicines.append(p)
         }
+        return p
         
         
     }
     
-    func deleteTask(taskDeleted: Int!){
-        tasks.removeAtIndex(taskDeleted)
+    
+    
+    func deleteMedicine(pillDeleted: Int!){
+        medicines.removeAtIndex(pillDeleted)
     }
     
+    func getNewTimeLeft(){
+        for i in 0...medicines.count-1{
+            var m = medicines[i]
+            var nextAlarm = m.alarmTimes[m.nextAlarmIndex]
+            medicines[i].timeLeft = nextAlarm.offsetFrom(NSDate())
+        }
+    }
+    
+    func setTimeLeft(timeLeft: String){
+        
+    }
+    /*
     func completeTask(taskCompleted: Int!){
         print("Completed a task!")
-        tasks[taskCompleted].completedAt = NSDate()
-        tasksCompleted.append(tasks[taskCompleted])
+        medicines[medicineCompleted].completedAt = NSDate()
+        medicineCompleted.append(medicines[taskCompleted])
         
     }
- */
+ 
     
     func countCompletedTasks() -> Int{
         let currentTime: NSDate = NSDate()
@@ -82,6 +100,6 @@ class PillManager: NSObject {
  */
         return count;
     }
-
+*/
 
 }

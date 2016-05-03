@@ -18,7 +18,7 @@ class SecondTableViewController: UITableViewController{
     @IBOutlet var tableViewMedicine: UITableView!
     
     
- 
+    
     
     override func viewWillAppear(animated: Bool) {
         // 1
@@ -40,10 +40,24 @@ class SecondTableViewController: UITableViewController{
                 print("The app is not permitted to access reminders, make sure to grant permission in the settings and try again")
             }
         }
+        
+        if(pillMgr.medicines.count>0){
+            pillMgr.getNewTimeLeft()
+        }
+        print("medicine RELOAD!")
+        print(pillMgr.medicines)
+        self.tableViewMedicine.reloadData()
+        
+        
+        //self.update()
+       
+     
     }
     
+        
+    
     override func viewDidLoad() {
-        self.automaticallyAdjustsScrollViewInsets = false
+        //self.automaticallyAdjustsScrollViewInsets = false
         super.viewDidLoad()
         
         // Uncomment the following line to preserve selection between presentations
@@ -51,7 +65,19 @@ class SecondTableViewController: UITableViewController{
         
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        //self.update()
     }
+    /*
+     func update() {
+     dispatch_async(dispatch_get_main_queue()) {
+     if(pillMgr.medicines.count>0){
+     pillMgr.getNewTimeLeft()
+     }
+     print("HIHIHI")
+     self.tableViewMedicine.reloadData()
+     }
+     }
+     */
     
     @IBAction func editTable(sender: AnyObject) {
         tableViewMedicine.editing = !tableViewMedicine.editing
@@ -89,30 +115,66 @@ class SecondTableViewController: UITableViewController{
     // MARK: - Table view data source
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return reminders.count
+        return pillMgr.medicines.count
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) ->
         UITableViewCell {
-            
+            /*
             let cell: UITableViewCell = UITableViewCell(style: UITableViewCellStyle.Subtitle , reuseIdentifier: "reminderCell")
             let reminder:EKReminder! = self.reminders![indexPath.row]
             cell.textLabel?.text = reminder.title
+            //cell.detailTextLabel!.text = "Number of Pills You took" + String(pillMgr.medicines[indexPath.row].pillsTook)
+
             let formatter:NSDateFormatter = NSDateFormatter()
-            formatter.dateFormat = "yyyy-MM-dd"
+            formatter.dateFormat = "hh:mm"
+            
+            
+            
             if let dueDate = reminder.dueDateComponents?.date{
+                //getting time Left:
+                
                 cell.detailTextLabel?.text = formatter.stringFromDate(dueDate)
             }else{
                 cell.detailTextLabel?.text = "N/A"
             }
-            print("Hi I am a cell")
+            
             return cell
+            */
+            
+            let cell: UITableViewCell = UITableViewCell(style: UITableViewCellStyle.Subtitle , reuseIdentifier: "reminderCell")
+            let pill = pillMgr.medicines[indexPath.row]
+            /*
+            if((currTask.completedAt) != nil){
+                cell.detailTextLabel!.textColor = UIColor.whiteColor()
+                cell.contentView.backgroundColor = lightOrange
+                cell.accessoryType = UITableViewCellAccessoryType.Checkmark
+                let myDateFormatter : NSDateFormatter = NSDateFormatter()
+                myDateFormatter.dateStyle = NSDateFormatterStyle.MediumStyle
+                cell.textLabel!.text = currTask.name
+                cell.detailTextLabel!.text = myDateFormatter.stringFromDate(currTask.completedAt!)
+                
+                return cell
+            }
+ */
+            
+            let dateFormatter = NSDateFormatter()
+            dateFormatter.dateFormat = "hh:mm a"
+            cell.detailTextLabel!.text = "You took " + String(pill.pillsTook) + " pills Today\n" + "Time Left For the Next Pill: " + pill.timeLeft  + "\n" +  "Take the Next Pill at " + String(dateFormatter.stringFromDate(pill.alarmTimes[pill.nextAlarmIndex]));
+            cell.detailTextLabel!.numberOfLines = 4;
+            cell.detailTextLabel!.lineBreakMode = NSLineBreakMode.ByWordWrapping;
+            cell.textLabel!.text = pillMgr.medicines[indexPath.row].name
+            //cell.detailTextLabel!.text = pillMgr.medicines[indexPath.row].timeLeft
+            
+            
+            return cell
+            
     }
 
     
  
     override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-        
+        /*
         let reminder: EKReminder = reminders[indexPath.row]
         do{
             try eventStore.removeReminder(reminder, commit: true)
@@ -121,6 +183,10 @@ class SecondTableViewController: UITableViewController{
         }catch{
             print("An error occurred while removing the reminder from the Calendar database: \(error)")
         }
+         */
+        pillMgr.delete(indexPath.row)
+        tableViewMedicine.reloadData()
+
     }
     
     //MARK: UITableViewDelegate

@@ -15,6 +15,7 @@ class AddPillViewController: UIViewController,UIPickerViewDataSource,UIPickerVie
     // Properties
     var eventStore: EKEventStore!
     var datePicker: UIDatePicker!
+    var selectedCategory: String!
     
     @IBOutlet weak var textFieldPillName: UITextField!
     @IBOutlet weak var pickerViewCategory: UIPickerView!
@@ -29,12 +30,13 @@ class AddPillViewController: UIViewController,UIPickerViewDataSource,UIPickerVie
     override func viewDidLoad() {
         super.viewDidLoad()
         datePicker = UIDatePicker()
-        datePicker.addTarget(self, action: "addDate", forControlEvents: UIControlEvents.ValueChanged)
+        datePicker.addTarget(self, action: #selector(AddPillViewController.addDate), forControlEvents: UIControlEvents.ValueChanged)
         datePicker.datePickerMode = UIDatePickerMode.DateAndTime
         textFieldFirstAt.inputView = datePicker
         self.pickerViewCategory.dataSource = self;
         self.pickerViewCategory.delegate = self;
-        //reminderTextView.becomeFirstResponder()
+        textFieldPillName.becomeFirstResponder()
+        
     }
     
     @IBAction func dismiss(sender: AnyObject) {
@@ -42,28 +44,77 @@ class AddPillViewController: UIViewController,UIPickerViewDataSource,UIPickerVie
     }
     
     @IBAction func saveNewReminder(sender: AnyObject) {
-        //Pill
-        /*
-        pillMgr.addPill(textFieldPillName.text!, desc: txtDesc.text!, createdAt: NSDate(), completedAt: nil)
-        self.view.endEditing(true)
-        txtTask.text = ""
-        txtDesc.text = ""
-
-        */
         
-        //Reminder
+        let numPills = Int(textFieldNumPills.text!)!
+        let duration =  Int(textFieldHours.text!)!
+        
+        //Making Alarm Array for new pill
+        var alarmTime = datePicker.date
+        var alarmArray: [NSDate] = [alarmTime]
+        if numPills > 1{
+            for _ in 1...numPills-1{
+                alarmTime = alarmTime.addHours(duration)
+                alarmArray.append(alarmTime)
+            }
+        }
+        //Getting next Alarm & next Alarm index
+        var nextAlarm: NSDate = alarmArray[0]
+        var nextAlarmIndex: Int = 0
+        for i in 0...alarmArray.count-1{
+            //if alarm Time is later than current time, this is the next alarm
+            if alarmArray[i].isGreaterThanDate(NSDate()){
+                nextAlarm = alarmArray[i]
+                nextAlarmIndex = i
+                break;
+            }
+            
+        }
+        //timeLeft for next Alarm
+        let timeLeft = nextAlarm.offsetFrom(NSDate())
+        
+        //Create a Pill
+        let pill = pillMgr.addPill(textFieldPillName.text!, category: selectedCategory, numPills: numPills, duration: duration, alarmTimes: alarmArray, nextAlarmIndex: nextAlarmIndex, timeLeft: timeLeft)
+        
+        //Create a Reminder
         let reminder = EKReminder(eventStore: self.eventStore)
-        //reminder.title = reminderTextView.text
+        reminder.title = textFieldPillName.text!
+        
+        //Add Recurrence Rule for daily
+        let recRule: EKRecurrenceRule = EKRecurrenceRule(recurrenceWithFrequency: EKRecurrenceFrequency.Daily ,interval: 1,end: nil)
+        reminder.addRecurrenceRule(recRule)
+        
+        //Setting Alarms with reminder
+        for time in pill.alarmTimes{
+            let alarm: EKAlarm = EKAlarm(absoluteDate: time)
+            reminder.addAlarm(alarm)
+        }
+        
+        
+        /*
+         let alarm = EKAlarm(absoluteDate: timeInterval)
+         var interval: NSTimeInterval = Double(2)
+         alarm = EKAlarm(absoluteDate: NSDate().dateByAddingTimeInterval(interval))
+         reminder.addAlarm(alarm)
+         */
+        
         let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         let dueDateComponents = appDelegate.dateComponentFromNSDate(self.datePicker.date)
         reminder.dueDateComponents = dueDateComponents
         reminder.calendar = self.eventStore.defaultCalendarForNewReminders()
+        
+        
         do {
             try self.eventStore.saveReminder(reminder, commit: true)
             dismissViewControllerAnimated(true, completion: nil)
         }catch{
             print("Error creating and saving new reminder : \(error)")
         }
+        
+        self.view.endEditing(true)
+        textFieldNumPills.text = ""
+        textFieldHours.text = ""
+        textFieldFirstAt.text = ""
+        textFieldPillName.text = ""
     }
     
     func addDate(){
@@ -81,10 +132,11 @@ class AddPillViewController: UIViewController,UIPickerViewDataSource,UIPickerVie
         return pickerData.count
     }
     
-    func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String! {
+    func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        selectedCategory = pickerData[row]
         return pickerData[row]
     }
-  
+    
     
     /*
      // MARK: - Navigation

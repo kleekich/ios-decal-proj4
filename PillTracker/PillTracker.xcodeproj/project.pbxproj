@@ -19,6 +19,7 @@
 		8E587F1D1CD2E771005277E6 /* FourthTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E587F1C1CD2E771005277E6 /* FourthTableViewController.swift */; };
 		8E587F211CD4B51F005277E6 /* PillManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E587F201CD4B51F005277E6 /* PillManager.swift */; };
 		8E587F251CD6F027005277E6 /* AddPillViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E587F241CD6F027005277E6 /* AddPillViewController.swift */; };
+		8E587F271CD75198005277E6 /* NSDateExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E587F261CD75198005277E6 /* NSDateExtensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +58,7 @@
 		8E587F1C1CD2E771005277E6 /* FourthTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FourthTableViewController.swift; sourceTree = "<group>"; };
 		8E587F201CD4B51F005277E6 /* PillManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PillManager.swift; sourceTree = "<group>"; };
 		8E587F241CD6F027005277E6 /* AddPillViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddPillViewController.swift; sourceTree = "<group>"; };
+		8E587F261CD75198005277E6 /* NSDateExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSDateExtensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,6 +116,7 @@
 				8E587F181CD2E742005277E6 /* ThirdTableViewController.swift */,
 				8E587F1C1CD2E771005277E6 /* FourthTableViewController.swift */,
 				8E587F201CD4B51F005277E6 /* PillManager.swift */,
+				8E587F261CD75198005277E6 /* NSDateExtensions.swift */,
 				8E587EEE1CD2E444005277E6 /* Main.storyboard */,
 				8E587EF11CD2E444005277E6 /* Assets.xcassets */,
 				8E587EF31CD2E444005277E6 /* LaunchScreen.storyboard */,
@@ -271,6 +274,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8E587F271CD75198005277E6 /* NSDateExtensions.swift in Sources */,
 				8E587F251CD6F027005277E6 /* AddPillViewController.swift in Sources */,
 				8E587EE91CD2E444005277E6 /* AppDelegate.swift in Sources */,
 				8E587F1D1CD2E771005277E6 /* FourthTableViewController.swift in Sources */,
