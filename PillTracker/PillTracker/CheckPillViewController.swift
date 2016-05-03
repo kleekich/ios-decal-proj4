@@ -61,36 +61,57 @@ class CheckPillViewController: UIViewController {
             
             // Read the JSON
             do {
-                if let ipString = NSString(data:data!, encoding: NSUTF8StringEncoding) {
+                if let dataString = NSString(data:data!, encoding: NSUTF8StringEncoding) {
                     // Print what we got from the call
                     //print(ipString)
                     
                     // Parse the JSON to get the IP
-                    let jsonDictionary = try NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.MutableContainers) as! NSDictionary
+                
                     let url = NSURL(string: postEndpoint)
                     let jsonData = NSData(contentsOfURL: url!) as NSData!
                     let readableJSON = JSON(data: jsonData, options: NSJSONReadingOptions.MutableContainers, error: nil)
-                    
+                    /*
                     var groupJSON = readableJSON["interactionTypeGroup"]
                     var typeElementJSON = groupJSON[0]
                     var typeJSON = typeElementJSON["interactionType"][0]
                     var interactionPairJSON = typeJSON["interactionPair"][0]//can have serveral reactions
-                    var description = interactionPairJSON["description"]
-                    
+                    var interactionConceptJSON = interactionPairJSON["interactionConcept"][1]
+                    var interactionItemName = interactionConceptJSON["minConceptItem"]["name"]
+                    var interactionDesc = interactionPairJSON["description"]
+ 
                     NSLog("------------------------------------")
-                    NSLog("\(description)")
+                    NSLog("\(interactionItemName)")
                     NSLog("------------------------------------")
-                    //let origin = jsonDictionary["interactionTypeGroup"] as! String
-                    /*
-                    var desc: String = "asdf"
-                    let interactionArray = jsonDictionary["interactionTypeGroup"]
-                    for i in 0...interactionArray!.count{
-                        let interactionTypeArray = interactionArray![i]["interactionType"]
-                        desc = interactionTypeArray!![0]!["interactionPair"]!![0]!["description"]! as! String
+  */
+                    var jsonArray = readableJSON["interactionTypeGroup"][0]["interactionType"][0]["interactionPair"]
+                    var numArr = jsonArray.count
+                   
+                    var names:[String] = []
+                    for i in 0...numArr-1{
+                        var name = readableJSON["interactionTypeGroup"][0]["interactionType"][0]["interactionPair"][i]["interactionConcept"][1]["minConceptItem"]["name"].rawString() as String!
+                        print(name)
+                        names.append(name!)
                         
                     }
+                    
+  /*
+                    var groupJSON = readableJSON["interactionTypeGroup"]
+                    var typeElementJSON = groupJSON[0]
+                    var typeJSON = typeElementJSON["interactionType"][0]
+                    var interactionPairJSON = typeJSON["interactionPair"][0]//can have serveral reactions
+                    var interactionConceptJSON = interactionPairJSON["interactionConcept"][0]
+                    //var name = interactionConceptJSON["minConceptItem"]["name"]
+                    
+ 
+                    
+                    var name = readableJSON["interactionTypeGroup"][0]["interactionType"][0]["interactionPair"][0]["interactionConcept"][0]["minConceptItem"]["name"]
+ 
+                    NSLog("------------------------------------")
+                    NSLog("\(name)")
+                    NSLog("------------------------------------")
                     */
-                    // Update the label
+                    
+                                        // Update the label
                     self.performSelectorOnMainThread("updateIPLabel:", withObject: self.desc, waitUntilDone: false)
                 }
             } catch {
