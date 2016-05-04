@@ -16,10 +16,11 @@ class AddPillViewController: UIViewController,UIPickerViewDataSource,UIPickerVie
     var eventStore: EKEventStore!
     var datePicker: UIDatePicker!
     var selectedCategory: String!
-    var pillName: String!
+    var pillName: String! = ""
     var status: String!
     var desc: String!
     
+    @IBOutlet weak var labelPillName: UILabel!
     @IBOutlet weak var textFieldPillName: UITextField!
     @IBOutlet weak var pickerViewCategory: UIPickerView!
     @IBOutlet weak var textFieldHours: UITextField!
@@ -32,15 +33,26 @@ class AddPillViewController: UIViewController,UIPickerViewDataSource,UIPickerVie
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        labelPillName.text! = pillName
         datePicker = UIDatePicker()
         datePicker.addTarget(self, action: #selector(AddPillViewController.addDate), forControlEvents: UIControlEvents.ValueChanged)
         datePicker.datePickerMode = UIDatePickerMode.DateAndTime
         textFieldFirstAt.inputView = datePicker
         self.pickerViewCategory.dataSource = self;
         self.pickerViewCategory.delegate = self;
-        textFieldPillName.becomeFirstResponder()
+        
         
     }
+    
+    override func viewWillAppear(animated: Bool) {
+        // 1
+        print("viewWillAppear")
+        
+        
+        
+        
+    }
+
     
     @IBAction func dismiss(sender: AnyObject) {
         self.dismissViewControllerAnimated(true, completion: nil)
@@ -79,11 +91,11 @@ class AddPillViewController: UIViewController,UIPickerViewDataSource,UIPickerVie
         
         ////Create a Reminder
         let reminder = EKReminder(eventStore: self.eventStore)
-        reminder.title = textFieldPillName.text!
+        reminder.title = self.pillName
 
         
         //Create a Pill
-        let pill = pillMgr.addPill(textFieldPillName.text!, category: selectedCategory, numPills: numPills, duration: duration, pillsTook: pillsTook, alarmTimes: alarmArray, nextAlarmIndex: nextAlarmIndex, timeLeft: timeLeft, reminder: reminder)
+        let pill = pillMgr.addPill(self.pillName, category: selectedCategory, numPills: numPills, duration: duration, pillsTook: pillsTook, alarmTimes: alarmArray, nextAlarmIndex: nextAlarmIndex, timeLeft: timeLeft, reminder: reminder)
         
         
         //Add Recurrence Rule for daily
@@ -121,7 +133,7 @@ class AddPillViewController: UIViewController,UIPickerViewDataSource,UIPickerVie
         textFieldNumPills.text = ""
         textFieldHours.text = ""
         textFieldFirstAt.text = ""
-        textFieldPillName.text = ""
+        
     }
     
     func addDate(){
@@ -143,6 +155,8 @@ class AddPillViewController: UIViewController,UIPickerViewDataSource,UIPickerVie
         selectedCategory = pickerData[row]
         return pickerData[row]
     }
+    
+   
     
     
     /*

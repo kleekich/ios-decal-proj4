@@ -21,7 +21,7 @@ struct pill{
     var nextAlarmIndex: Int
     var timeLeft: String
     var reminder: EKReminder
-    var reactionWith: [String!]
+    //var reactionWith: [String!]
     
 }
 

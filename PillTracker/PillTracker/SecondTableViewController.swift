@@ -197,14 +197,17 @@ class SecondTableViewController: UITableViewController{
     
     @IBAction func unwindToSecondTableView(segue: UIStoryboardSegue) {
         if segue.identifier == "save" {
+            //var avc = segue.sourceViewController as? AddTaskViewControlle
         }
         /*
-        if let avc = segue.sourceViewController as? SecondTableViewController {
-            //taskMgr.addTask(avc.txtTask.text!, desc: avc.txtDesc.text!, createdAt: NSDate(), completedAt: nil)
+        if let avc = segue.sourceViewController as? AddTaskViewController {
+            taskMgr.addTask(avc.txtTask.text!, desc: avc.txtDesc.text!, createdAt: NSDate(), completedAt: nil)
             
         }
-        */
+ */
+        
     }
+
     
 
     /*

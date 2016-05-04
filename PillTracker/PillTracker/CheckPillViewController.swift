@@ -15,14 +15,32 @@ import SwiftyJSON
 class CheckPillViewController: UIViewController, NSXMLParserDelegate {
     var eventStore: EKEventStore!
     var pillName: String!
+    var interactionWith: String!
+    var interactionDesc: String!
     var status: String!
     var desc: String!
     
+    @IBOutlet weak var textViewDescription: UITextView!
     @IBOutlet weak var textFieldPillName: UITextField!
+    @IBOutlet weak var labelInteractionWith: UILabel!
+    @IBOutlet weak var labelDescription: UILabel!
     
-    @IBOutlet weak var ipLabel: UILabel!
-    @IBOutlet weak var postResultLabel: UILabel!
 
+    
+    @IBAction func checkButtonClicked(sender: AnyObject) {
+        beginParsing()
+        gettingInteractions()
+        
+        NSLog("----------IN PREPARE--------------------------")
+        NSLog("\(self.interactionWith)")
+        NSLog("\(self.interactionDesc)")
+        NSLog("------------------------------------")
+
+        self.view.endEditing(true)
+        textFieldPillName.text = ""
+  
+    
+    }
     
     override func viewWillAppear(animated: Bool) {
         
@@ -31,19 +49,6 @@ class CheckPillViewController: UIViewController, NSXMLParserDelegate {
         
         
     }
-    
-    
-    
-    override func viewDidLoad() {
-        
-        super.viewDidLoad()
-        
-        gettingRxcui()
-        gettingInteractions()
-        
-    }
-    func gettingRxcui() {
-    }
     var parser = NSXMLParser()
     var posts = NSMutableArray()
     var elements = NSMutableDictionary()
@@ -51,10 +56,20 @@ class CheckPillViewController: UIViewController, NSXMLParserDelegate {
     var title1 = NSMutableString()
     var date = NSMutableString()
     
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        
+       
+    }
+    
+    
+    
     func beginParsing()
     {
         posts = []
-        parser = NSXMLParser(contentsOfURL:(NSURL(string:"http://images.apple.com/main/rss/hotnews/hotnews.rss"))!)!
+        parser = NSXMLParser(contentsOfURL:(NSURL(string:"https://rxnav.nlm.nih.gov/REST/rxcui?name=\(textFieldPillName.text!)"))!)!
         parser.delegate = self
         parser.parse()
         //tbData!.reloadData()
@@ -63,7 +78,7 @@ class CheckPillViewController: UIViewController, NSXMLParserDelegate {
     func parser(parser: NSXMLParser, didStartElement elementName: String, namespaceURI: String?, qualifiedName qName: String?, attributes attributeDict: [String : String])
     {
         element = elementName
-        if (elementName as NSString).isEqualToString("item")
+        if (elementName as NSString).isEqualToString("rxnormId")
         {
             elements = NSMutableDictionary()
             elements = [:]
@@ -71,22 +86,25 @@ class CheckPillViewController: UIViewController, NSXMLParserDelegate {
             title1 = ""
             date = NSMutableString()
             date = ""
+           
         }
     }
     
     func parser(parser: NSXMLParser!, foundCharacters string: String!)
     {
-        if element.isEqualToString("title") {
+        if element.isEqualToString("rxnormId") {
             title1.appendString(string)
+         
         } else if element.isEqualToString("pubDate") {
             date.appendString(string)
         }
     }
     func parser(parser: NSXMLParser!, didEndElement elementName: String!, namespaceURI: String!, qualifiedName qName: String!)
     {
-        if (elementName as NSString).isEqualToString("item") {
+        if (elementName as NSString).isEqualToString("rxnormId") {
             if !title1.isEqual(nil) {
-                elements.setObject(title1, forKey: "title")
+                elements.setObject(title1, forKey: "rxnormId")
+               
             }
             if !date.isEqual(nil) {
                 elements.setObject(date, forKey: "date")
@@ -128,53 +146,62 @@ class CheckPillViewController: UIViewController, NSXMLParserDelegate {
                     //print(ipString)
                     
                     // Parse the JSON to get the IP
-                
+                    
                     let url = NSURL(string: postEndpoint)
                     let jsonData = NSData(contentsOfURL: url!) as NSData!
                     let readableJSON = JSON(data: jsonData, options: NSJSONReadingOptions.MutableContainers, error: nil)
-                    /*
+                    
                     var groupJSON = readableJSON["interactionTypeGroup"]
                     var typeElementJSON = groupJSON[0]
                     var typeJSON = typeElementJSON["interactionType"][0]
                     var interactionPairJSON = typeJSON["interactionPair"][0]//can have serveral reactions
                     var interactionConceptJSON = interactionPairJSON["interactionConcept"][1]
-                    var interactionItemName = interactionConceptJSON["minConceptItem"]["name"]
-                    var interactionDesc = interactionPairJSON["description"]
+                    self.interactionWith = interactionConceptJSON["minConceptItem"]["name"].rawString() as String!
+
+                    self.interactionDesc = interactionPairJSON["description"].rawString() as String!
+
+                   
+                    NSLog("------------------------------------")
+                    NSLog("\(self.interactionWith)")
+                    NSLog("\(self.interactionDesc)")
+                    NSLog("------------------------------------")
  
-                    NSLog("------------------------------------")
-                    NSLog("\(interactionItemName)")
-                    NSLog("------------------------------------")
-  */
+                    
+                    
+                    /*core
+                    
                     var jsonArray = readableJSON["interactionTypeGroup"][0]["interactionType"][0]["interactionPair"]
                     var numArr = jsonArray.count
                    
-                    var reactionWith:[String] = []
+                    self.interactionWith = []
                     for i in 0...numArr-1{
                         var name = readableJSON["interactionTypeGroup"][0]["interactionType"][0]["interactionPair"][i]["interactionConcept"][1]["minConceptItem"]["name"].rawString() as String!
                         print(name)
-                        reactionWith.append(name!)
+                        self.interactionWith.append(name!)
                         
                     }
-                    
-  /*
+                    */
+                   /*
+  
                     var groupJSON = readableJSON["interactionTypeGroup"]
                     var typeElementJSON = groupJSON[0]
                     var typeJSON = typeElementJSON["interactionType"][0]
                     var interactionPairJSON = typeJSON["interactionPair"][0]//can have serveral reactions
                     var interactionConceptJSON = interactionPairJSON["interactionConcept"][0]
                     //var name = interactionConceptJSON["minConceptItem"]["name"]
-                    
+                    interactionPairJSON["description"]
  
                     
-                    var name = readableJSON["interactionTypeGroup"][0]["interactionType"][0]["interactionPair"][0]["interactionConcept"][0]["minConceptItem"]["name"]
- 
+                    interactionWith = readableJSON["interactionTypeGroup"][0]["interactionType"][0]["interactionPair"][0]["interactionConcept"][0]["minConceptItem"]["name"]
+                    
                     NSLog("------------------------------------")
                     NSLog("\(name)")
                     NSLog("------------------------------------")
                     */
                     
                                         // Update the label
-                    self.performSelectorOnMainThread("updateIPLabel:", withObject: self.desc, waitUntilDone: false)
+                    self.performSelectorOnMainThread("updateLabelInteraction:", withObject: self.interactionWith, waitUntilDone: false)
+                    self.performSelectorOnMainThread("updateLabelDesc:", withObject: self.interactionDesc, waitUntilDone: false)
                 }
             } catch {
                 print("bad things happened")
@@ -193,21 +220,23 @@ class CheckPillViewController: UIViewController, NSXMLParserDelegate {
         let nav = segue.destinationViewController as! UINavigationController
         let addPillViewController = nav.topViewController as! AddPillViewController
         
+        
         addPillViewController.eventStore = eventStore
-        addPillViewController.pillName = textFieldPillName.text!
-        addPillViewController.status = status
-        addPillViewController.desc = desc
+        addPillViewController.pillName = textFieldPillName.text
+        //addPillViewController.desc = self.interactionDesc
+        //addPillViewController.status = status
+        //addPillViewController.desc = self.desc
         
     }
     //MARK: - Methods to update the UI immediately
-    func updateIPLabel(text: String) {
-        self.ipLabel.text = "Your IP is " + text
+    func updateLabelInteraction(text: String) {
+        self.labelInteractionWith.text = text
+    }
+    func updateLabelDesc(text: String) {
+        self.textViewDescription.text = text
     }
     
-    func updatePostLabel(text: String) {
-        self.postResultLabel.text = "POST : " + text
-    }
-    
+ 
     
     
     
