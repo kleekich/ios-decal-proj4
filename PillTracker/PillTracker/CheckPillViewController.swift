@@ -37,7 +37,7 @@ class CheckPillViewController: UIViewController, NSXMLParserDelegate {
         NSLog("------------------------------------")
 
         self.view.endEditing(true)
-        textFieldPillName.text = ""
+        //textFieldPillName.text = ""
   
     
     }
@@ -199,7 +199,9 @@ class CheckPillViewController: UIViewController, NSXMLParserDelegate {
                     NSLog("------------------------------------")
                     */
                     
-                                        // Update the label
+                // Update the label
+                    
+                    
                     self.performSelectorOnMainThread("updateLabelInteraction:", withObject: self.interactionWith, waitUntilDone: false)
                     self.performSelectorOnMainThread("updateLabelDesc:", withObject: self.interactionDesc, waitUntilDone: false)
                 }
@@ -222,7 +224,7 @@ class CheckPillViewController: UIViewController, NSXMLParserDelegate {
         
         
         addPillViewController.eventStore = eventStore
-        addPillViewController.pillName = textFieldPillName.text
+        addPillViewController.pillName = textFieldPillName!.text
         //addPillViewController.desc = self.interactionDesc
         //addPillViewController.status = status
         //addPillViewController.desc = self.desc
